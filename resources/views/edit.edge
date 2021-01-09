@@ -14,10 +14,12 @@
                         <label for="title">Title</label>
                         <input class="form-control" type="text" name="title" placeholder="Title of Todo"
                         value="{{ todo.title }}">
+                        {{ elIf('<span style="color: red">$self</span>', getErrorFor('title'), hasErrorFor('title')) }}
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea class="form-control" name="description" cols="30" rows="10">{{ todo.description }}</textarea>
+                        {{ elIf('<span style="color: red">$self</span>', getErrorFor('description'), hasErrorFor('description')) }}
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-sm btn-success">Submit</button>

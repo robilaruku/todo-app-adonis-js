@@ -1,5 +1,7 @@
 'use strict'
 const Todo = use('App/Models/Todo');
+const { validate } = use('Validator');
+
 class TodoController {
   async index({request, response, view}){
       const todos = await Todo.all();
@@ -12,6 +14,7 @@ class TodoController {
   }
 
   async store({request, response, view, session}){
+
       const todo = new Todo();
 
       todo.title = request.input('title');
